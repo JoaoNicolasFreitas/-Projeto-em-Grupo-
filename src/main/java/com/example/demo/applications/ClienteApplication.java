@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.example.demo.entities.Cliente;
 import com.example.demo.intefaces.IClienteInterface;
+import com.example.demo.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,7 +26,7 @@ public class ClienteApplication {
 
     public Cliente findById(int id){ return this.clienteRepository.findById(id); }
 
-    public Cliente save(Cliente cliente){ return this.clienteRepository.save(pagamento);}
+    public Cliente save(Cliente cliente){ return this.clienteRepository.save(cliente);}
 
     public Cliente update(int id, Cliente cliente) {
         Cliente clienteInDb = clienteRepository.findById(id);
