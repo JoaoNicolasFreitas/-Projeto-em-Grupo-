@@ -17,7 +17,6 @@ public class ClienteApplication {
     @Autowired
     public ClienteApplication(ClienteRepository clienteRepository) {
         this.clienteRepository = clienteRepository;
-
     }
 
     public List<Cliente> findAll() {
@@ -36,7 +35,6 @@ public class ClienteApplication {
         return this.clienteRepository.update(id, cliente);
     }
     public void deleteById(int id) { this.clienteRepository.deleteById(id);}
-
 
 }
 
