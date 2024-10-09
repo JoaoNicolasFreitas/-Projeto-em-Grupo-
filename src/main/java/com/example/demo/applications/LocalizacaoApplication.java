@@ -1,7 +1,7 @@
 package com.example.demo.applications;
 
 import com.example.demo.entities.Localizacao;
-import com.example.demo.intefaces.ILocalizacaoInteface;
+import com.example.demo.interfaces.ILocalizacaoInteface;
 import com.example.demo.repositories.LocalizacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

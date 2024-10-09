@@ -1,7 +1,7 @@
 package com.example.demo.repositories;
 
 import com.example.demo.entities.Cliente;
-import com.example.demo.intefaces.IClienteInterface;
+import com.example.demo.interfaces.IClienteInterface;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

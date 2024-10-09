@@ -1,7 +1,7 @@
 package com.example.demo.repositories;
 
 import com.example.demo.entities.Localizacao;
-import com.example.demo.intefaces.ILocalizacaoInteface;
+import com.example.demo.interfaces.ILocalizacaoInteface;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;

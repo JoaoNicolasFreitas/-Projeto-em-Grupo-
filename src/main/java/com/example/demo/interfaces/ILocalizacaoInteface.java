@@ -1,4 +1,4 @@
-package com.example.demo.intefaces;
+package com.example.demo.interfaces;
 
 import com.example.demo.entities.Localizacao;
 

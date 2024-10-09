@@ -1,7 +1,7 @@
 package com.example.demo.repositories;
 
 import com.example.demo.entities.Evento;
-import com.example.demo.intefaces.IEventoInterface;
+import com.example.demo.interfaces.IEventoInterface;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
