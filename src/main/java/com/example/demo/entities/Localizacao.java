@@ -3,8 +3,8 @@ package com.example.demo.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "pagamentos")
-public class Pagamento {
+@Table(name = "localizacoes")
+public class Localizacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -13,11 +13,11 @@ public class Pagamento {
     @Column(name = "endereco")
     private String endereco;
 
-    public Pagamento() {
+    public Localizacao() {
 
     }
 
-    public Pagamento(int id, String endereco) {
+    public Localizacao(int id, String endereco) {
         this.id = id;
         this.endereco = endereco;
     }

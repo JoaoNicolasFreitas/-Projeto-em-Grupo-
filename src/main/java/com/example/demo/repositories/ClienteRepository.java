@@ -1,7 +1,35 @@
 package com.example.demo.repositories;
 
 import com.example.demo.entities.Cliente;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.demo.intefaces.IClienteInterface;
+import org.springframework.stereotype.Component;
 
-public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+import java.util.List;
+
+@Component
+public class ClienteRepository implements IClienteInterface {
+    @Override
+    public List<Cliente> findAll() {
+        return List.of();
+    }
+
+    @Override
+    public Cliente findById(int id) {
+        return null;
+    }
+
+    @Override
+    public Cliente save(Cliente cliente) {
+        return null;
+    }
+
+    @Override
+    public Cliente update(int id, Cliente base) {
+        return null;
+    }
+
+    @Override
+    public void deleteById(int id) {
+
+    }
 }

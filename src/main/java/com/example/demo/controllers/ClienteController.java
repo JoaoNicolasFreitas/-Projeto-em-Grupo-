@@ -1,62 +1,68 @@
 package com.example.demo.controllers;
 
 import com.example.demo.entities.Cliente;
-import com.example.demo.services.ClienteService;
+import com.example.demo.facade.ClienteFacade;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/clientes")
 public class ClienteController {
 
+    private final ClienteFacade clienteFacade;
+
     @Autowired
-    private ClienteService clienteService;
-
-    // Endpoint para salvar um cliente
-    @PostMapping
-    public Cliente salvarCliente(@RequestBody Cliente cliente) {
-        return clienteService.salvarCliente(cliente);
+    public ClienteController(ClienteFacade clienteFacade) {
+        this.clienteFacade = clienteFacade;
     }
 
-    // Endpoint para buscar um cliente pelo ID
-    @GetMapping("/{id}")
-    public ResponseEntity<Cliente> buscarCliente(@PathVariable Long id) {
-        Optional<Cliente> cliente = clienteService.buscarPorId(id);
-        if (cliente.isPresent()) {
-            return ResponseEntity.ok(cliente.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    @GetMapping("/findAll")
+    public ResponseEntity<List<Cliente>> findAll() {
+        List<Cliente> pagamento = this.clienteFacade.findAll();
+
+        return new ResponseEntity<>(pagamento, HttpStatus.OK);
     }
 
-    // Endpoint para listar todos os clientes
-    @GetMapping
-    public List<Cliente> listarClientes() {
-        return clienteService.buscarTodosClientes();
+    @GetMapping("/findById/{id}")
+    public ResponseEntity<Cliente> findById(@PathVariable int id) {
+        Cliente cliente = this.clienteFacade.findById(id);
+
+        if (cliente == null)
+            return new ResponseEntity<Cliente>(cliente, HttpStatus.NOT_FOUND);
+
+        return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);
     }
 
-    // Endpoint para deletar um cliente pelo ID
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletarCliente(@PathVariable Long id) {
-        if (clienteService.deletarCliente(id)) {
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    @PostMapping("/save")
+    public ResponseEntity<Cliente> save(@RequestBody Cliente cliente) {
+        Cliente clienteSaved = clienteFacade.save(cliente);
+
+        return new ResponseEntity<Cliente>(clienteSaved, HttpStatus.CREATED);
+
     }
 
-    // Endpoint para atualizar um cliente
-    @PutMapping("/{id}")
-    public ResponseEntity<Cliente> atualizarCliente(@PathVariable Long id, @RequestBody Cliente clienteAtualizado) {
-        Optional<Cliente> cliente = clienteService.atualizarCliente(id, clienteAtualizado);
-        if (cliente.isPresent()) {
-            return ResponseEntity.ok(cliente.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Cliente> update(
+            @PathVariable int id,
+            @RequestBody Cliente cliente) {
+
+        Cliente clienteUpdated = clienteFacade.update(id, cliente);
+
+        if (clienteUpdated == null)
+            return new ResponseEntity<Cliente>(clienteUpdated, HttpStatus.NOT_FOUND);
+
+        return new ResponseEntity<Cliente>(clienteUpdated, HttpStatus.OK);
     }
+
+    @DeleteMapping("/deleteById/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable int id) {
+        clienteFacade.deleteById(id);
+
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+
 }

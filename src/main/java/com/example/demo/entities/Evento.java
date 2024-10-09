@@ -3,23 +3,24 @@ package com.example.demo.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "cliente")
-public class Cliente {
+@Table(name = "evento")
+public class Evento {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
-    @Column(name = "cliente")
-    private String cliente;
+    @Column(name = "evento")
+    private String evento;
 
-    public Cliente() {
+    public Evento() {
 
     }
 
-    public Cliente(int id, String cliente) {
+    public Evento(int id, String evento) {
         this.id = id;
-        this.cliente = cliente;
+        this.evento = evento;
     }
 
     public int getId() {
@@ -30,11 +31,12 @@ public class Cliente {
         this.id = id;
     }
 
-    public String getCliente() {
-        return cliente;
+    public String getEvento() {
+        return evento;
     }
 
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
+    public void setEvento(String cliente) {
+        this.evento = evento;
     }
 }
+
