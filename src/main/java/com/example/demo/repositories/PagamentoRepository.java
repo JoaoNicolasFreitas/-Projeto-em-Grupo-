@@ -1,7 +1,7 @@
 package com.example.demo.repositories;
 
 import com.example.demo.entities.Pagamento;
-import com.example.demo.intefaces.IPagamentoInterface;
+import com.example.demo.interfaces.IPagamentoInterface;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

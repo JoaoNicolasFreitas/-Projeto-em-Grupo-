@@ -3,7 +3,7 @@ package com.example.demo.applications;
 import java.util.List;
 
 import com.example.demo.entities.Cliente;
-import com.example.demo.intefaces.IClienteInterface;
+import com.example.demo.interfaces.IClienteInterface;
 import com.example.demo.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

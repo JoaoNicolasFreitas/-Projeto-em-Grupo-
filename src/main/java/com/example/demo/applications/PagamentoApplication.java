@@ -1,7 +1,7 @@
 package com.example.demo.applications;
 
 import com.example.demo.entities.Pagamento;
-import com.example.demo.intefaces.IPagamentoInterface;
+import com.example.demo.interfaces.IPagamentoInterface;
 import com.example.demo.repositories.PagamentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
