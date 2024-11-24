@@ -35,7 +35,7 @@ public class Evento {
         return evento;
     }
 
-    public void setEvento(String cliente) {
+    public void setEvento(String evento) {
         this.evento = evento;
     }
 }

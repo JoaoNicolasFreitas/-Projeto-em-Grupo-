@@ -1,13 +1,13 @@
 package com.example.demo.facade;
 
-import com.example.demo.applications.ClienteApplication;
 import com.example.demo.applications.EnderecoApplication;
-import com.example.demo.entities.Cliente;
 import com.example.demo.entities.Endereco;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class EnderecoFacade {
 
     private EnderecoApplication enderecoApplication;
@@ -29,12 +29,13 @@ public class EnderecoFacade {
         return this.enderecoApplication.save(endereco);
     }
 
-    public Endereco update(int id, Endereco Endereco) {
+    public Endereco update(int id, Endereco endereco) {
         return this.enderecoApplication.update(id, endereco);
     }
-
 
     public void deleteById(int id) {
         this.enderecoApplication.deleteById(id);
     }
 }
+
+

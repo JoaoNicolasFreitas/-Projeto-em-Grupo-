@@ -1,18 +1,19 @@
 package com.example.demo.facade;
 
-
 import com.example.demo.applications.EventoApplication;
 import com.example.demo.entities.Evento;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class EventoFacade {
 
     private EventoApplication eventoApplication;
 
     @Autowired
-    public void Evento(EventoApplication eventoApplication) {
+    public void EventoFacede(EventoApplication eventoApplication) {
         this.eventoApplication = eventoApplication;
     }
 
@@ -31,7 +32,6 @@ public class EventoFacade {
     public Evento update(int id, Evento evento) {
         return this.eventoApplication.update(id, evento);
     }
-
 
     public void deleteById(int id) {
         this.eventoApplication.deleteById(id);

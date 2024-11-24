@@ -16,4 +16,6 @@ public interface IEnderecoInterface {
     public Endereco update(int id, Localizacao base);
 
     public void deleteById(int id);
+
+    Endereco update(int id, Endereco endereco);
 }

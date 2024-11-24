@@ -6,12 +6,11 @@ import com.example.demo.facade.EventoFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Repository
+@RestController
 @RequestMapping("/evento")
 public class EventoController {
 

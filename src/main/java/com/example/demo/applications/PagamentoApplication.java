@@ -16,7 +16,6 @@ public class PagamentoApplication {
     @Autowired
     public PagamentoApplication(PagamentoRepository pagamentoRepository) {
         this.pagamentosRepository = pagamentoRepository;
-
     }
 
     public List<Pagamento> findAll() {
@@ -35,7 +34,6 @@ public class PagamentoApplication {
         return this.pagamentosRepository.update(id, pagamento);
     }
     public void deleteById(int id) { this.pagamentosRepository.deleteById(id);}
-
 
 }
 

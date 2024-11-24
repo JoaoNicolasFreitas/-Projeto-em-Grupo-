@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/pagamentos")
 public class PagamentoController {
 
-    private PagamentoFacade pagamentoFacade;
+    private final PagamentoFacade pagamentoFacade;
 
     @Autowired
     public PagamentoController(PagamentoFacade pagamentoFacade) {
@@ -40,21 +40,17 @@ public class PagamentoController {
     @PostMapping("/save")
     public ResponseEntity<Pagamento> save(@RequestBody Pagamento pagamento) {
         Pagamento pagamentoSaved = pagamentoFacade.save(pagamento);
-
         return new ResponseEntity<Pagamento>(pagamentoSaved, HttpStatus.CREATED);
-
     }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Pagamento> update(
             @PathVariable int id,
             @RequestBody Pagamento pagamento) {
-
         Pagamento pagamentoUpdated = pagamentoFacade.update(id, pagamento);
 
         if (pagamentoUpdated == null)
             return new ResponseEntity<Pagamento>(pagamentoUpdated, HttpStatus.NOT_FOUND);
-
         return new ResponseEntity<Pagamento>(pagamentoUpdated, HttpStatus.OK);
     }
 

@@ -1,35 +1,38 @@
 package com.example.demo.applications;
 
 import com.example.demo.entities.Evento;
+import com.example.demo.repositories.EventoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class EventoApplication {
 
-    private final EventoApplication eventoApplications;
-    private com.example.demo.entities.Evento Evento;
+    private final EventoRepository eventoRepository;
+    private Evento Evento;
 
     @Autowired
-    public EventoApplication(EventoApplication eventoApplications) {
-        this.eventoApplications = eventoApplications;
+    public EventoApplication(EventoRepository eventoRepository) {
+        this.eventoRepository = eventoRepository;
     }
 
     public List<Evento> findAll() {
-        return this.eventoApplications.findAll();
+        return this.eventoRepository.findAll();
     }
 
-    public Evento findById(int id){ return this.eventoApplications.findById(id); }
+    public Evento findById(int id){ return this.eventoRepository.findById(id); }
 
-    public Evento save(Evento cliente){ return this.eventoApplications.save(cliente);}
+    public Evento save(Evento cliente){ return this.eventoRepository.save(cliente);}
 
     public Evento update(int id, Evento cliente) {
-        Evento clienteInDb = eventoApplications.findById(id);
+        Evento clienteInDb = eventoRepository.findById(id);
 
         if (clienteInDb == null) return null;
 
-        return this.eventoApplications.update(id, Evento);
+        return this.eventoRepository.update(id, Evento);
     }
-    public void deleteById(int id) { this.eventoApplications.deleteById(id);}
+    public void deleteById(int id) { this.eventoRepository.deleteById(id);}
 
 }

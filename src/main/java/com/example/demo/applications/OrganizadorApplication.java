@@ -1,7 +1,7 @@
 package com.example.demo.applications;
 
 import com.example.demo.entities.Organizador;
-import com.example.demo.intefaces.IOrganizadorInterface;
+import com.example.demo.interfaces.IOrganizadorInterface;
 import com.example.demo.repositories.OrganizadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -17,7 +17,7 @@ public class EventoRepository implements IEventoInterface{
 
     @Override
     public List<Evento> findAll() {
-        String jpql = "SELECT e FROM Localizacao e";
+        String jpql = "SELECT e FROM Evento e";
 
         TypedQuery<Evento> query = entityManager.createQuery(jpql, Evento.class);
 
