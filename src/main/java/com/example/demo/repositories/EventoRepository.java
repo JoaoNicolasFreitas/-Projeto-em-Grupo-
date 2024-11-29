@@ -42,7 +42,8 @@ public class EventoRepository implements IEventoInterface{
     public Evento update(int id, Evento evento) {
         Evento eventoInDb = entityManager.find(Evento.class, id);
 
-        eventoInDb.setEvento(evento.getEvento());
+        eventoInDb.setValor(evento.getValor());
+
 
         return entityManager.merge(evento);
     }

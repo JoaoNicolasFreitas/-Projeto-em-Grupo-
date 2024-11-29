@@ -10,19 +10,19 @@ public class Pagamento {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "ValorPago")
-    private String ValorPago;
+    @Column(name = "valor_pago")
+    private String valorPago;
 
-    @Column(name = "DataPagamento")
-    private String DataPagamento;
+    @Column(name = "data_pagamento")
+    private String dataPagamento;
 
     public Pagamento() {
     }
 
     public Pagamento(int id, String valorPago, String dataPagamento) {
         this.id = id;
-        ValorPago = valorPago;
-        DataPagamento = dataPagamento;
+        this.valorPago = valorPago;
+        this.dataPagamento = dataPagamento;
     }
 
     public int getId() {
@@ -34,18 +34,18 @@ public class Pagamento {
     }
 
     public String getValorPago() {
-        return ValorPago;
+        return valorPago;
     }
 
     public void setValorPago(String valorPago) {
-        ValorPago = valorPago;
+        this.valorPago = valorPago;
     }
 
     public String getDataPagamento() {
-        return DataPagamento;
+        return dataPagamento;
     }
 
     public void setDataPagamento(String dataPagamento) {
-        DataPagamento = dataPagamento;
+        this.dataPagamento = dataPagamento;
     }
 }

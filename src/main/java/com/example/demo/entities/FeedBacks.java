@@ -11,43 +11,33 @@ public class FeedBacks {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "comentario")
-    private String comentario;
+    @Column(name = "Descricao")
+    private String descricao;
 
-    @Column(name = "nota")
-    private int nota;
+    @Column(name = "NotaFeedbacks")
+    private int notaFeedbacks;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name= "cliente_id", referencedColumnName = "id")
+    private Cliente cliente;
 
     public FeedBacks() {
 
     }
 
-    public FeedBacks(int id, String comentario, int nota) {
-        this.id = id;
-        this.comentario = comentario;
-        this.nota = nota;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public int getId() {
-        return id;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getNotaFeedbacks() {
+        return notaFeedbacks;
     }
 
-    public String getComentario() {
-        return comentario;
-    }
-
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
-    }
-
-    public int getNota() {
-        return nota;
-    }
-
-    public void setNota(int nota) {
-        this.nota = nota;
+    public void setNotaFeedbacks(int notaFeedbacks) {
+        this.notaFeedbacks = notaFeedbacks;
     }
 }

@@ -3,8 +3,10 @@ package com.example.demo.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-@Table(name="organizador")
+@Table(name="organizadores")
 public class Organizador {
 
     @Id
@@ -12,22 +14,29 @@ public class Organizador {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "Nome")
-    private String Nome;
+    @Column(name = "nome")
+    private String nome;
 
-    @Column(name = "Telefone")
-    private String Telefone;
+    @Column(name = "telefone")
+    private String telefone;
 
-    @Column(name = "Email")
-    private String Email;
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "senha")
+    private String senha;
+
+    @OneToMany(mappedBy = "organizador", cascade = CascadeType.ALL)
+    private List<Evento> eventos;
 
     public Organizador() {
-
     }
 
-    public Organizador(int id, String Nome) {
-        this.id = id;
-        this.Nome = Nome;
+    public Organizador(String nome, String telefone, String email, String senha) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
+        this.senha = senha;
     }
 
     public int getId() {
@@ -39,12 +48,34 @@ public class Organizador {
     }
 
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
-    public void setNome(String Nome) {
-        this.Nome = Nome;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
+    public String getTelefone() {
+        return telefone;
+    }
 
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 }

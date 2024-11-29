@@ -42,7 +42,9 @@ public class FeedBacksRepository implements IFeedBacksInterface {
     public FeedBacks update(int id, FeedBacks feedBacks) {
         FeedBacks feedBacksInDb = entityManager.find(FeedBacks.class, id);
 
-        feedBacksInDb.setId(feedBacks.getId());
+        feedBacksInDb.setNotaFeedbacks(feedBacks.getNotaFeedbacks());
+
+
 
         return entityManager.merge(feedBacksInDb);
     }

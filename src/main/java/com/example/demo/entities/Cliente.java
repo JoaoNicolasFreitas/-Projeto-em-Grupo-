@@ -2,8 +2,10 @@ package com.example.demo.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-@Table(name = "cliente")
+@Table(name = "clientes")
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,23 +21,23 @@ public class Cliente {
     @Column(name = "email")
     private String email;
 
-    @ManyToOne
-    @JoinColumn(name = "endereco_id")
-    private Endereco endereco;
+    @Column(name = "senha")
+    private String senha;
 
-    @ManyToOne
-    @JoinColumn(name = "feedback_id")
-    private FeedBacks feedback;
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Endereco> enderecos;
+
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<FeedBacks> feedbacks;
 
     public Cliente() {
     }
 
-    public Cliente( String nome, String telefone, String email, Endereco endereco, FeedBacks feedback) {
+    public Cliente(String nome, String telefone, String email, String senha) {
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
-        this.endereco = endereco;
-        this.feedback = feedback;
+        this.senha = senha;
     }
 
     public int getId() {
@@ -70,19 +72,11 @@ public class Cliente {
         this.email = email;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
-
-    public FeedBacks getFeedback() {
-        return feedback;
-    }
-
-    public void setFeedback(FeedBacks feedback) {
-        this.feedback = feedback;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }
