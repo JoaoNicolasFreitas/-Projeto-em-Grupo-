@@ -28,9 +28,9 @@ public class Evento {
     @JoinColumn(name = "localizacao")
     private Localizacao localizacao;
 
-    @OneToMany
-    @JoinColumn(name = "pagamento")
-    private  Pagamento pagamento;
+    @OneToOne
+    @JoinColumn(name = "pagamento_id")
+    private Pagamento pagamento;
 
     public Evento() {
 
