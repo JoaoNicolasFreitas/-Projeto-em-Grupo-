@@ -2,6 +2,8 @@ package com.example.demo.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "eventos")
 public class Evento {
@@ -28,9 +30,8 @@ public class Evento {
     @JoinColumn(name = "localizacao")
     private Localizacao localizacao;
 
-    @OneToOne
-    @JoinColumn(name = "pagamento_id")
-    private Pagamento pagamento;
+    @OneToMany(mappedBy = "evento", cascade = CascadeType.ALL)
+    private List<Pagamento> pagamentos;
 
     public Evento() {
 

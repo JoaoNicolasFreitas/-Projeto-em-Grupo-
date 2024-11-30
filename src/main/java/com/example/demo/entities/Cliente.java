@@ -30,6 +30,9 @@ public class Cliente {
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<FeedBacks> feedbacks;
 
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Pagamento> pagamentos;
+
     public Cliente() {
     }
 

@@ -1,5 +1,7 @@
 package com.example.demo.repositories;
 
+import com.example.demo.entities.Cliente;
+import com.example.demo.entities.Evento;
 import com.example.demo.entities.Pagamento;
 import com.example.demo.interfaces.IPagamentoInterface;
 import jakarta.persistence.EntityManager;
@@ -32,6 +34,12 @@ public class PagamentoRepository implements IPagamentoInterface {
     @Override
     @Transactional
     public Pagamento save(Pagamento pagamento) {
+        Cliente cliente = entityManager.find(Cliente.class, pagamento.getCliente().getId());
+        Evento evento = entityManager.find(Evento.class, pagamento.getEvento().getId());
+
+        pagamento.setCliente(cliente);
+        pagamento.setEvento(evento);
+
         entityManager.persist(pagamento);
 
         return pagamento;

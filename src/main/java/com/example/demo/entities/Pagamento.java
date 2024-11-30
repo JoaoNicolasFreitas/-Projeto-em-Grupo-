@@ -16,6 +16,14 @@ public class Pagamento {
     @Column(name = "data_pagamento")
     private String dataPagamento;
 
+    @ManyToOne
+    @JoinColumn(name = "cliente_id", referencedColumnName = "id")
+    private Cliente cliente;
+
+    @ManyToOne
+    @JoinColumn(name = "evento_id", referencedColumnName = "id")
+    private Evento evento;
+
     public Pagamento() {
     }
 
@@ -47,5 +55,21 @@ public class Pagamento {
 
     public void setDataPagamento(String dataPagamento) {
         this.dataPagamento = dataPagamento;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Evento getEvento() {
+        return evento;
+    }
+
+    public void setEvento(Evento evento) {
+        this.evento = evento;
     }
 }
